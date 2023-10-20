@@ -1,34 +1,17 @@
-grade=['0']*20
-abc=['0']*20
-for i in range(20):
-  tmp = input().split()
-  grade[i]=tmp[1]
-  if tmp[2]=='A+':
-    abc[i]=4.5
-  elif tmp[2]=='A0':
-    abc[i]=4.0
-  elif tmp[2]=='B+':
-    abc[i]=3.5
-  elif tmp[2]=='B0':
-    abc[i]=3.0
-  elif tmp[2]=='C+':
-    abc[i]=2.5
-  elif tmp[2]=='C0':
-    abc[i]=2.0
-  elif tmp[2]=='D+':
-    abc[i]=1.5
-  elif tmp[2]=='D0':
-    abc[i]=1.0
-  elif tmp[2]=='F':
-    abc[i]=0.0
-  elif tmp[2]=='P':
-    abc[i]='P'
-sum=0
-cnt=0
+a = [[0]*101 for _ in range(101)]
+num = int(input())
+arr=[[0]*2 for _ in range(num)]
+for i in range(num):
+  arr[i]=input().split()
 
-for i in range(20):
-  if abc[i]!='P':
-    sum+=float(grade[i])*float(abc[i])
-    cnt+=float(grade[i])
-result = round(sum/cnt,6)
-print(result)
+for i in range(num):
+  for x in range(int(arr[i][0]),int(arr[i][0])+10):
+    for y in range(int(arr[i][1]),int(arr[i][1])+10):
+      a[x][y] += 1
+cnt = 0
+
+for i in range(101):
+  for j in range(101):
+    if a[i][j]>=1:
+      cnt+=1
+print(cnt)
