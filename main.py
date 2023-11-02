@@ -1,1 +1,3 @@
-print(4*int(input()))
+a=int(input())
+print(a*a)
+print("2")
